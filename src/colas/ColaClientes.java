@@ -33,4 +33,47 @@ public class ColaClientes {
 		return cliente;
 	}
 	
+	public void insertarPrioridad(Cliente cliente, int prioridad) {
+		if(prioridad >= 0 && prioridad < tamaño) {
+			NodoCliente nuevo = new NodoCliente();
+			nuevo.cliente = cliente;
+			
+			if(prioridad == 1) {
+				nuevo.next = head;
+				head = nuevo;
+				
+				
+			} if(prioridad == 2) {
+				nuevo.next = head.next;
+				head.next = nuevo;
+				
+			}
+			else {
+				if(prioridad == tamaño) {
+					NodoCliente tmp = head;
+					while(tmp.next == null) {
+						tmp = null;
+					}
+				}
+				else {
+					NodoCliente tmp = head;
+					for(int i = 0; i < (prioridad - 1); i++) {
+						tmp = tmp.next;
+					}
+					NodoCliente next = tmp.next;
+					tmp.next = nuevo;
+					nuevo.next = next;
+				}
+			}
+			tamaño++;
+		}
+	}
+	
+	public void imprimir() {
+		NodoCliente tmp = head;
+		while(tmp != null) {
+			System.out.println(tmp.cliente.documento+ " , " +tmp.cliente.nombre+ " ," +tmp.cliente.valorConsignar);
+			tmp = tmp.next;
+		}
+	}
 }
