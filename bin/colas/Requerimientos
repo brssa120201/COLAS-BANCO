@@ -1,0 +1,56 @@
+------------------- Lunes, Sep 28  ---------------------------------
+1. Crear un nuevo repositorio en gitHub llamado "pilas-mayor" para almacenar el proyecto
+2. Crear una pila de productos. Cada producto tiene: precio, nombre, porcentaje de descuento
+3. Crear una estructura de Pila para almacenar estos productos
+4. Resolver los siguientes requerimientos:
+	4.1. Encontrar el producto más barato
+	4.2. Obtener cuánto dinero se otorgó en descuentos
+		Ej:
+			Producto 1: precio = 100, descuento = 30%
+			Producto 2: precio = 300, descuento = 70%
+		
+			Respuesta:
+				El dinero total en descuentos es: 30(primer producto) + 210(segundo producto), por lo tanto, el descuento total es de 240 pesos.
+	4.3. Cuál es el nombre del producto con más descuento.
+5. Hora máxima de entrega: 7:00 p.m.
+6. Se debe subir este proyecto al nuevo repositorio de gitHub "pilas-mayor" que se creó en el paso 1.
+
+------------------- Lunes, Oct 15  ---------------------------------
+1. Crear dos pilas A y B
+2. Ingresar objetos de tipo Producto a las pilas, cada producto tiene (codigo, nombre, precio, impuesto)
+3. Realizar las operaciones de conjuntos sobre las pilas A y B (Unión, Intersección, Diferencia, Complemento)
+4. Subir proyecto a nuevo repositorio gitHub, el repositorio debe llamarse "pilas-prj-corte-2"
+5. Los conjuntos no admiten elementos repetidos (dos productos con el mismo código)
+
+=========================== Tercer corte
+------------------- Fecha de entrega: --------------------------------
+1. Crear un nuevo proyecto en GitHub llamado "colas-banco"
+2. Crear una nueva operación, insertar(Cliente cliente, int prioridad).
+	Ej:
+		La prioridad más alta es 1, es decir, si llega un cliente con prioridad = 1. Este cliente pasa a ser el primero en la lista.
+		
+		Cola = [a, b, c]
+		insertar(x, 1)
+			Ejemplo 1:
+				insertar x con prioridad 1
+				La cola debe quedar así:
+				Cola = [x, a, b, c]
+			Ejemplo 2:
+				insertar x con prioridad 2
+				La cola debe quedar así:
+				Cola = [a, x, b, c]
+				
+3. Crear varios clientes de prueba con la operación enqueue.
+	Crear unos 3 clientes con la operación insert() con diferentes prioridades
+	
+4. Calcular el cliente con el mayor valor de consignación.
+
+5. Clacular el promedio de valores de consignaciones.
+
+Calendario:
+	lunes 26 oct: asesoría del trabajo de colas-banco.
+	jueves 29 oct: sustentación del trabajo de colas.
+	jueves 5 de nov: Leer datos de un archivo plano.
+	lunes 9 de nov: Asignación de proyecto final del curso.
+	Jueves 12 de nov: asesoría proyecto final.
+	Jueves 19 de nov: Sustentación del proyecto final y notas finales.
