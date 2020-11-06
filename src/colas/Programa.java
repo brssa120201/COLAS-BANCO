@@ -1,8 +1,13 @@
 package colas;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Programa {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		System.out.println();
 		System.out.println("------------------ COLA CLIENTES ------------------");
@@ -27,61 +32,20 @@ public class Programa {
 		
 	}
 		
-	public static ColaClientes fillStack() {
+	public static ColaClientes fillStack() throws NumberFormatException, IOException {
 			
 		ColaClientes colaClientes = new ColaClientes();
 		
-		//Clientes operacion enqueue
-		Cliente c1 = new Cliente();
-		c1.documento = "1";
-		c1.nombre = "Susana";
-		c1.valorConsignar = 100;
-		
-		Cliente c2 = new Cliente();
-		c2.documento = "2";
-		c2.nombre = "Pedro";
-		c2.valorConsignar = 200;
-		
-		Cliente c3 = new Cliente();
-		c3.documento = "3";
-		c3.nombre = "Leonardo";
-		c3.valorConsignar = 300;
-		
-		Cliente c4 = new Cliente();
-		c4.documento = "4";
-		c4.nombre = "Camila";
-		c4.valorConsignar = 400;
-		
-		Cliente c5 = new Cliente();
-		c5.documento = "5";
-		c5.nombre = "Luz";
-		c5.valorConsignar = 500;
-			
-		//Clientes operacion insertar por prioridad
-		Cliente c6 = new Cliente();
-		c6.documento = "6";
-		c6.nombre = "Michelle";
-		c6.valorConsignar = 250;
-		
-		Cliente c7 = new Cliente();
-		c7.documento = "7";
-		c7.nombre = "Camilo";
-		c7.valorConsignar = 350;
-		
-		Cliente c8 = new Cliente();
-		c8.documento = "8";
-		c8.nombre = "Juan";
-		c8.valorConsignar = 550;
-		
-		colaClientes.enqueue(c5);
-		colaClientes.enqueue(c4);
-		colaClientes.enqueue(c3);
-		colaClientes.enqueue(c2);
-		colaClientes.enqueue(c1);
-		
-		colaClientes.insertarPrioridad(c6, 1);
-		colaClientes.insertarPrioridad(c7, 2);
-		colaClientes.insertarPrioridad(c8, 1);
+		BufferedReader bf = new BufferedReader(new FileReader("cliente.csv"));
+		int cantClientes = Integer.parseInt(bf.readLine());
+		for(int i=0; i<cantClientes; i++) {
+			String[] datosCliente = bf.readLine().split(",");
+			Cliente cliente = new Cliente();
+			cliente.documento = datosCliente[0];
+			cliente.nombre = datosCliente[1];
+			cliente.valorConsignar = Float.parseFloat(datosCliente[2]);
+			colaClientes.enqueue(cliente);
+		}
 		 
 		//colaClientes.imprimir();
 		//System.out.println();
@@ -113,7 +77,7 @@ public class Programa {
 	
 	//CLIENTE CON MAYOR CONSIGNACION EN EL BANCO
 	public static float clienteMayorConsignacion(ColaClientes colaClientes) {
-		float mayor = colaClientes.dequeue().valorConsignar;		
+		float mayor = colaClientes.dequeue().valorConsignar;
 		while(colaClientes.tamaño > 0) {
 			float mayorConsignacion = colaClientes.dequeue().valorConsignar;
 			if(mayorConsignacion > mayor) {
